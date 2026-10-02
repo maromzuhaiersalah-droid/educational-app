@@ -1,0 +1,62 @@
+{
+  "collections": {
+    "users": [
+      "uid",
+      "name",
+      "email",
+      "role",
+      "classId",
+      "photoUrl"
+    ],
+    "quizzes": [
+      "title",
+      "description",
+      "lessonId",
+      "questionsCount"
+    ],
+    "questions": [
+      "quizId",
+      "questionText",
+      "questionImage",
+      "options",
+      "correctAnswer"
+    ],
+    "quiz_results": [
+      "studentId",
+      "quizId",
+      "score",
+      "totalQuestions",
+      "percentage",
+      "completedAt"
+    ],
+    "homework": [
+      "title",
+      "description",
+      "lessonId",
+      "dueDate",
+      "attachmentUrl"
+    ],
+    "homework_submissions": [
+      "homeworkId",
+      "studentId",
+      "fileUrl",
+      "fileName",
+      "submittedAt",
+      "status"
+    ],
+    "lessons": [
+      "title",
+      "description",
+      "videoUrl",
+      "pdfUrl",
+      "thumbnailUrl",
+      "order"
+    ],
+    "lesson_progress": [
+      "studentId",
+      "lessonId",
+      "progress",
+      "completed"
+    ]
+  }
+}
