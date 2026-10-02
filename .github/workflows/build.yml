@@ -5,14 +5,13 @@ on:
     branches:
       - main
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Java
         uses: actions/setup-java@v3
@@ -25,18 +24,15 @@ jobs:
         with:
           channel: 'stable'
 
-      - name: Create Full Flutter App
+      - name: Create and Build App
         run: |
-          mkdir -p temp_app
-          flutter create --org com.example temp_app
-          if [ -f main.dart ]; then cp main.dart temp_app/lib/main.dart; fi
-          if [ -d lib ]; then cp -r lib/* temp_app/lib/; fi
-          cd temp_app
-          flutter pub get
+          flutter create my_app
+          cd my_app
           flutter build apk --release
 
-      - name: Upload APK Artifact
-        uses: actions/upload-artifact@v3
+      - name: Upload APK
+      uses: actions/upload-artifact@v4
         with:
-          name: app-release-apk
-          path: temp_app/build/app/outputs/flutter-apk/app-release.apk
+          name: app-release
+          path: my_app/build/app/outputs/flutter-apk/app-release.apk
+      
